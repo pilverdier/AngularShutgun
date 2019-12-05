@@ -17,7 +17,7 @@ describe('Register tests', () =>{
   Expect register to succeed route to new component when all inputs are correct
 
   */
-  it('Should show the register form when on the register path', ()=>{
+  it('1.0 Should show the register form when on the register path', ()=>{
 
     //start by accessing the register component
     browser.get('');
@@ -28,7 +28,7 @@ describe('Register tests', () =>{
   })
 
 
-  it('Should show validation errors when wrong inputs are used', () =>{
+  it('2.0 Should show validation errors when wrong inputs are used', () =>{
 
 
     //Feed the wrong information into form
@@ -46,8 +46,9 @@ describe('Register tests', () =>{
 
       expect(amount).toEqual(7);
     });
+    });
 
-    it('should show the "thanks" page when form is succesfully submitted', () =>{
+    it('3.0 should show the "thanks" page when form is succesfully submitted', () =>{
 
       //First clear the information from last test to ensure clean slate
 
@@ -73,8 +74,6 @@ describe('Register tests', () =>{
       //Expect the thanks page to be displayed
 
       expect(element(by.id("thanks-message")).isDisplayed)
-    });
-
   });
 
 });
