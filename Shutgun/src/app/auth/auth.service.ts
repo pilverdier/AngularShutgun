@@ -15,13 +15,13 @@ export class AuthService {
   redirectUrl: string;
 
   login(): Observable<boolean> {
-    console.log("Auth Service");  
+    console.log("Auth Service");
 
-    return of(true).pipe(
+    return of(true).pipe( //returns a true observable that is true. Use the pipe function to delay and then use the tap function that runs a side effect without changing the observable
       delay(1000),
       tap(val => {
         console.log("test if this is running");
-        this.isLoggedIn = true
+        this.isLoggedIn = true //changes loggedin to true before returning it
       })
     );
   }

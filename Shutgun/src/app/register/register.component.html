@@ -1,57 +1,56 @@
 
 
-<form [formGroup]="registerForm" class="example-form" (ngSubmit)="onRegisterClick()">
+<form [formGroup]="registerForm" class="example-form" (ngSubmit)="onRegisterClick()" id="registerForm">
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="first name" formControlName="firstName">
-      <div *ngIf="registerForm.controls.firstName.hasError('required')">
+      <input matInput placeholder="first name" formControlName="firstName" id="register-firstName">
+      <div *ngIf="registerForm.controls.firstName.hasError('required')" class="register-validationError">
         Please provide a first name
       </div>
     </mat-form-field>
-  
+
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="last name" formControlName="lastName">
-      <div *ngIf="registerForm.controls.lastName.hasError('required')">
+      <input matInput placeholder="last name" formControlName="lastName" id="register-lastName">
+      <div *ngIf="registerForm.controls.lastName.hasError('required')" class="register-validationError">
         Please provide a last name
       </div>
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
-        <input matInput placeholder="e-mail" formControlName="email">
-        <div *ngIf="registerForm.controls.email.hasError('email')">
+        <input matInput placeholder="e-mail" formControlName="email" id="register-eMail">
+        <div *ngIf="registerForm.controls.email.hasError('email')" class="register-validationError">
             Please provide an e-mail address
         </div>
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
-        <input matInput placeholder="password" type="password" formControlName="password">
-        <div *ngIf="registerForm.controls.password.hasError('required')">
+        <input matInput placeholder="password" type="password" formControlName="password" id="register-password">
+        <div *ngIf="registerForm.controls.password.hasError('required')" class="register-validationError">
             Please provide a password
         </div>
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
-        <input matInput placeholder="city" formControlName="city">
-        <div *ngIf="registerForm.controls.city.hasError('required')">
+        <input matInput placeholder="city" formControlName="city" id="register-city">
+        <div *ngIf="registerForm.controls.city.hasError('required')" class="register-validationError">
             Please provide your city
         </div>
     </mat-form-field>
-          
+
     <mat-form-field class="example-full-width">
-        <input matInput placeholder="date of birth" type="date" formControlName="birthDate">
-        <div *ngIf="registerForm.controls.birthDate.hasError('required')">
+        <input matInput placeholder="date of birth" type="date" formControlName="birthDate" id="register-birthDate">
+        <div *ngIf="registerForm.controls.birthDate.hasError('required')" class="register-validationError">
             Please provide your date of birth
         </div>
     </mat-form-field>
-    
+
     <mat-form-field class="example-full-width">
-        <input matInput placeholder="phone number" type="number" formControlName="phoneNumber">
-        <div *ngIf="registerForm.controls.phoneNumber.hasError('required')">
+        <input matInput placeholder="phone number" type="number" formControlName="phoneNumber" id="register-phoneNumber">
+        <div *ngIf="registerForm.controls.phoneNumber.hasError('required')" class="register-validationError">
             Please provide your phone-number
         </div>
     </mat-form-field>
 
-    <button mat-raised-button color="primary">Submit</button>
+    <button mat-raised-button color="primary" id="register-submit">Submit</button>
   </form>
 
   <router-outlet></router-outlet>
-  
