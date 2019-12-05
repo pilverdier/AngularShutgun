@@ -1,0 +1,16 @@
+<mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>From {{trip.origin}}  To: {{trip.destination}} </mat-card-title>
+      <mat-card-subtitle>On: {{trip.departureTime | date: 'dd/MM/yyyy hh:mm' }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>
+        By: {{trip.owner.firstName}} {{trip.owner.lastName}}
+        With: {{trip.availableSeats}} available seats
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button>LIKE</button>
+      <button mat-button (click)="onDeleteLift(trip._id)" class="delete-button">Delete</button>
+    </mat-card-actions>
+  </mat-card>
