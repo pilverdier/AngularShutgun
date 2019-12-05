@@ -13,6 +13,8 @@ import { RegisterComponent } from './register/register.component';
 import { PortalComponent } from './portal/portal.component';
 import { FindALiftComponent } from './find-a-lift/find-a-lift.component';
 import { UserAdminComponent } from './user-admin/user-admin.component';
+import { ThanksComponent } from './thanks/thanks.component';
+
 
 
 const routes: Routes = [
@@ -20,7 +22,9 @@ const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   {path: 'home', component: HomeComponent, children: [
     {path: 'login', component: LoginComponent},
-    {path: 'register', component: RegisterComponent},
+    {path: 'register', component: RegisterComponent, children: [
+      {path: 'thanks', component: ThanksComponent}
+    ]},
     {path: 'contact', component: ContactComponent, children: [
       {path: 'erik', component: ErikComponent},
       {path: 'lasse', component: LasseComponent}

@@ -31,6 +31,7 @@ import { FilterLift } from './find-a-lift/lift.filter';
 import {MatDividerModule} from '@angular/material/divider';
 import { Button } from 'protractor';
 import {MatIconModule} from '@angular/material/icon';
+import { ThanksComponent } from './thanks/thanks.component';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import {MatIconModule} from '@angular/material/icon';
     RegisterTripComponent,
     UserAdminComponent,
     TripComponent,
-    FilterLift
+    FilterLift,
+    ThanksComponent
   ],
     imports: [
     BrowserModule,
