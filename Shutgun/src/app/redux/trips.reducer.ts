@@ -9,8 +9,9 @@ const INITIAL_STATE: TripState = {isLift: false, lifts: [], isLoading: false };
 
 export function tripsReducer(state: TripState = INITIAL_STATE, action: any) {
  switch (action.type) {
+
   case LiftActions.GET_TRIPS:
-    return tassign(state, { lifts: action.payload });
+    return tassign(state, { lifts: action.payload, isLoading: false });
 
   case LiftActions.IS_LOADING:
     return tassign(state, {isLoading: action.payload});
@@ -27,19 +28,15 @@ export function tripsReducer(state: TripState = INITIAL_STATE, action: any) {
     // const newLifts = state.lifts.concat([action.payload]);
     const newLifts = [...state.lifts, action.payload]; // Javascript spread operator
     return tassign(state, { lifts: newLifts, isLoading: false });
-    
+
     case LiftActions.DELETE_TRIP:
-      const afterDeleteTrips: Trip[] = 
-        state.lifts.filter(trip => trip._id !== action.payload);
+      const afterDeleteTrips: Trip[] = state.lifts.filter(trip => trip._id !== action.payload);
 
-      return tassign(state, { lifts: afterDeleteTrips });
-
-
+      return tassign(state, {isLoading: false, lifts: afterDeleteTrips });
   // case LiftActions.MyAction:
-    
 
   case LiftActions.SET_TYPE:
-    
+
     // return Object.assign({}, state, { isLift: action.payload });
     return tassign(state, { isLift: action.payload });
 

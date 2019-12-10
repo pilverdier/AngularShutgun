@@ -18,4 +18,8 @@ export class ApiService {
     trip.localFilter = 'Thomas'; //Local filter that filters away the data. Also change in the lift action ts!
     return this.http.post(this.baseUrl, trip);
   }
+
+  deletetTrip(id: string) {
+    return this.http.delete(this.baseUrl + '/' + id, {responseType: 'text'});
+  }
 }

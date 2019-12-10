@@ -15,34 +15,28 @@ constructor(private ngRedux: NgRedux<AppState>, private apiService: ApiService,
   static MyAction: string = 'MY_ACTION';
   static CREATE_TRIP: string = 'CREATE_TRIP';
   static DELETE_TRIP: string = 'DELETE_TRIP';
-
   static IS_LOADING: string = 'IS_LOADING';
-
   static GET_TRIPS: string = 'GET_TRIPS';
 
   getTrips() {
-
+    this.ngRedux.dispatch({
+      type: LiftActions.IS_LOADING,
+      payload: true
+    });
     this.apiService.getAllTrips().subscribe((result: any[]) => {
       const myTrips = result.filter(x => x.localFilter === 'Thomas'); // Hack to only display my data. This also needs to be changed in the api ts file.
-
       this.ngRedux.dispatch({
         type: LiftActions.GET_TRIPS,
         payload: myTrips
       });
     });
-
-
-
   }
 
   createTrip(trip: Trip): void {
-
     this.ngRedux.dispatch({
       type: LiftActions.IS_LOADING,
       payload: true
     });
-
-
     this.apiService.createTrip(trip).subscribe((tripObjFromApi: Trip) => {
 
       this.ngRedux.dispatch({
@@ -51,19 +45,22 @@ constructor(private ngRedux: NgRedux<AppState>, private apiService: ApiService,
       });
       this.router.navigate(['/portal/findalift']);
     });
-
     console.log("Hi");
-
   }
 
   deleteTrip(id: string): void {
     this.ngRedux.dispatch({
-      type: LiftActions.DELETE_TRIP,
-      payload: id
+      type: LiftActions.IS_LOADING,
+      payload: true
+    });
+    
+    this.apiService.deletetTrip(id).subscribe(() => {
+      this.ngRedux.dispatch({
+        type: LiftActions.DELETE_TRIP,
+        payload: id
+      });
     });
   }
-
-
 
   callMyAction(isLift: boolean): void {
     this.ngRedux.dispatch({

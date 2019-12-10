@@ -15,4 +15,4 @@ export const rootReducer = combineReducers<AppState>({
 trips: tripsReducer,
 
 router: routerReducer
-} as any) ;
+} as any);
