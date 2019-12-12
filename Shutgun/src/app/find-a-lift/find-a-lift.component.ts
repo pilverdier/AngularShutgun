@@ -5,6 +5,7 @@ import { NgRedux } from '@angular-redux/store';
 import { AppState } from '../redux/store';
 import { Trip } from '../entities/trip';
 import {MatDividerModule} from '@angular/material/divider';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -18,7 +19,7 @@ export class FindALiftComponent implements OnInit {
   value = 'Clear me';
 
   constructor(private liftActions: LiftActions,
-              private ngRedux: NgRedux<AppState>) { } //this dependency injects the dataService object so it can be used in the webpage
+              private ngRedux: NgRedux<AppState>, private router: Router) { } //this dependency injects the dataService object so it can be used in the webpage
 
     // Subscribe to the store on initialisation.
   ngOnInit() {
@@ -36,5 +37,9 @@ export class FindALiftComponent implements OnInit {
   onTestClick(): void {
     // dispatch action by calling an action creator.
     this.liftActions.setType(true);
+  }
+
+  onEditLift(id: string): void{
+    this.router.navigate(['edit'])
   }
 }

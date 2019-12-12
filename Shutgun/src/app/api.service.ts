@@ -22,4 +22,7 @@ export class ApiService {
   deletetTrip(id: string) {
     return this.http.delete(this.baseUrl + '/' + id, {responseType: 'text'});
   }
+  updateTrip(id: string){
+    return this.http.put(this.baseUrl+'/'+id, {responseType: 'text'});
+  }
 }

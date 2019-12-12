@@ -37,7 +37,7 @@ describe('Register tests', () =>{
     element(by.id("register-eMail")).sendKeys(" ") //won't check for proper email unless something has been written
     element(by.id("register-password")).sendKeys("")
     element(by.id("register-city")).sendKeys("")
-    element(by.id("register-birthDate")).sendKeys(" ")
+    element(by.id("register-birthDate")).sendKeys(" ") //same here
     element(by.id("register-phoneNumber")).sendKeys("") + protractor.Key.TAB
 
     //Check for validation errors

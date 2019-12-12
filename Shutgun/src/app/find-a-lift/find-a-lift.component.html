@@ -8,7 +8,7 @@
 <br>
 <div *ngFor="let tripObject of lifts | filterLift: searchInput" class="lift-container">
 
-  <app-trip (tripDeleteEmitter)="onDeleteLift($event)" [trip]="tripObject" ></app-trip>
+  <app-trip (tripDeleteEmitter)="onDeleteLift($event)" (tripEditEmitter)="onEditLift($event)" [trip]="tripObject" ></app-trip>
 
 </div>
 

@@ -14,6 +14,7 @@ import { PortalComponent } from './portal/portal.component';
 import { FindALiftComponent } from './find-a-lift/find-a-lift.component';
 import { UserAdminComponent } from './user-admin/user-admin.component';
 import { ThanksComponent } from './thanks/thanks.component';
+import { EditComponent } from './edit/edit.component';
 
 
 
@@ -31,7 +32,9 @@ const routes: Routes = [
     ]},
   ]},
   {path: 'portal', component: PortalComponent , canActivate: [AuthGuard], children: [
-    {path: 'findalift', component: FindALiftComponent},
+    {path: 'findalift', component: FindALiftComponent, children: [
+      {path: 'edit/:id', component: EditComponent}
+    ]},
     {path: 'registertrip', component: RegisterTripComponent},
     {path: 'user-admin', component: UserAdminComponent, canActivate: [AdminGuard]}
   ]},
