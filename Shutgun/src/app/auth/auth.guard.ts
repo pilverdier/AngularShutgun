@@ -8,13 +8,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
-  
   constructor(private authService: AuthService, private adminService: AdminService) {}
 
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    
+
       console.log(this.authService.isLoggedIn);
       // If logged in => return true;
       // If not logged in => return false;
@@ -23,8 +22,5 @@ export class AuthGuard implements CanActivate {
       } else {
         return false;
       }
-    
-      
   }
-  
 }

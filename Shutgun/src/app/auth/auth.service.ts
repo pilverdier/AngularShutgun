@@ -17,7 +17,8 @@ export class AuthService {
   login(): Observable<boolean> {
     console.log("Auth Service");
 
-    return of(true).pipe( //returns a true observable that is true. Use the pipe function to delay and then use the tap function that runs a side effect without changing the observable
+    return of(true).pipe( //returns a true observable that is true.
+      //Use the pipe function to delay and then use the tap function that runs a side effect without changing the observable
       delay(1000),
       tap(val => {
         console.log("test if this is running");

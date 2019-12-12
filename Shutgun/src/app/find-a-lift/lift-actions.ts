@@ -53,7 +53,7 @@ constructor(private ngRedux: NgRedux<AppState>, private apiService: ApiService,
       type: LiftActions.IS_LOADING,
       payload: true
     });
-    
+
     this.apiService.deletetTrip(id).subscribe(() => {
       this.ngRedux.dispatch({
         type: LiftActions.DELETE_TRIP,
