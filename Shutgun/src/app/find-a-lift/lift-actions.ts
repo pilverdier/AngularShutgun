@@ -17,6 +17,7 @@ constructor(private ngRedux: NgRedux<AppState>, private apiService: ApiService,
   static DELETE_TRIP: string = 'DELETE_TRIP';
   static IS_LOADING: string = 'IS_LOADING';
   static GET_TRIPS: string = 'GET_TRIPS';
+  static EDIT_TRIP: string = 'EDIT_TRIP';
 
   getTrips() {
     this.ngRedux.dispatch({
@@ -45,7 +46,20 @@ constructor(private ngRedux: NgRedux<AppState>, private apiService: ApiService,
       });
       this.router.navigate(['/portal/findalift']);
     });
-    console.log("Hi");
+  }
+
+  editTrip(trip: Trip): void {
+    this.ngRedux.dispatch({
+      type: LiftActions.IS_LOADING,
+      payload: true
+    });
+    this.apiService.updateTrip(trip).subscribe((tripObjFromApi: Trip) => {
+      this.ngRedux.dispatch({
+        type: LiftActions.EDIT_TRIP,
+        payload: tripObjFromApi
+      });
+      this.router.navigate(['/portal/findalift']);
+    });
   }
 
   deleteTrip(id: string): void {

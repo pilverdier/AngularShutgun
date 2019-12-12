@@ -8,6 +8,7 @@ import { Trip } from '../entities/trip';
 import { NgRedux } from '@angular-redux/store';
 import { AppState } from '../redux/store';
 import { Subscription } from 'rxjs';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-edit',
@@ -40,7 +41,13 @@ export class EditComponent implements OnInit {
       'availableSeats': [this.trip.availableSeats, Validators.required],
       'departureTime': [this.trip.departureTime, Validators.required],
     });
-
   }
 
+  onEditSubmit(): void {
+    if (this.tripForm.valid) {
+      this.trip = this.tripForm.value as Trip;
+      this.trip.owner = this.auth.loggedInUser;
+      this.liftActions.editTrip(this.trip);
+    }
+  }
 }
