@@ -1,4 +1,5 @@
 <br>
+<router-outlet></router-outlet>
 <mat-form-field class="example-form">
   <input matInput type="text" [(ngModel)] = "searchInput" placeholder="Filter lifts">
   <button mat-button *ngIf="searchInput" matSuffix mat-icon-button aria-label="Clear" (click)="searchInput=''">
@@ -8,7 +9,7 @@
 <br>
 <div *ngFor="let tripObject of lifts | filterLift: searchInput" class="lift-container">
 
-  <app-trip (tripDeleteEmitter)="onDeleteLift($event)" [trip]="tripObject" ></app-trip>
+  <app-trip (tripDeleteEmitter)="onDeleteLift($event)" (tripEditEmitter)="onEditLift($event)" [trip]="tripObject" ></app-trip>
 
 </div>
 

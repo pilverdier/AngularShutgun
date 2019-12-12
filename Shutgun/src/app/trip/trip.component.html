@@ -1,3 +1,5 @@
+
+
 <mat-card class="example-card">
     <mat-card-header>
       <mat-card-title>From {{trip.origin}}  To: {{trip.destination}} </mat-card-title>
@@ -10,7 +12,9 @@
       </p>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-button>LIKE</button>
+      <button mat-button (click)="onEditTrip(trip._id)" class="mat-button">Edit</button>
       <button mat-button (click)="onDeleteLift(trip._id)" class="delete-button">Delete</button>
     </mat-card-actions>
   </mat-card>
+
+

@@ -31,6 +31,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import { Button } from 'protractor';
 import {MatIconModule} from '@angular/material/icon';
 import { ThanksComponent } from './thanks/thanks.component';
+import { EditComponent } from './edit/edit.component';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { ThanksComponent } from './thanks/thanks.component';
     UserAdminComponent,
     TripComponent,
     FilterLift,
-    ThanksComponent
+    ThanksComponent,
+    EditComponent
   ],
     imports: [
     BrowserModule,
